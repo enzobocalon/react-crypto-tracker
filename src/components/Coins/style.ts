@@ -5,10 +5,26 @@ export const Container = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
-`
+
+  .page-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    list-style: none;
+    margin: 10px 0;
+  }
+
+  .page-link{
+    margin: 1rem;
+    cursor: pointer;
+  }
+  `
 
 export const Wrapper = styled.section`
-
+  width: 100%;
+  overflow-x: auto;
 `
