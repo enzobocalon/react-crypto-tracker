@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Menu from './components/Menu/Menu'
 import { GlobalStyle } from './global'
 
