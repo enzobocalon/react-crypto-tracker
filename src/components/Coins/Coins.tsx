@@ -11,10 +11,12 @@ import { MdNavigateNext, MdNavigateBefore} from 'react-icons/md'
 import { SlOptions } from 'react-icons/sl'
 import { BsCoin } from 'react-icons/bs'
 import ReactPaginate from 'react-paginate';
+import { loadFavorites } from '../../services/favorites';
 
 const Coins = () => {
   const [pageCount, setPageCount] = useState<number>(1);
   const [coins, setCoins] = useState<ICoins[] | null>(null);
+  const [favorited, setFavorited] = useState<string[]>([]);
 
   const handlePageClick = (event: any) => {
     retrievePageData(event.selected + 1);
@@ -29,10 +31,11 @@ const Coins = () => {
     const response = await getDataLength();
     setPageCount(Math.ceil((response!/100)));
   }, [])
-  
+
   useEffect(() => {
     retrievePageData(1)
     retrieveDataLength()
+    setFavorited(loadFavorites())
   }, [])
 
   return (
@@ -51,6 +54,7 @@ const Coins = () => {
         </CoinStyle.Row>
         {
           coins?.map(coin => {
+            const found = favorited?.find(element => element === coin.id)
             return (
             <Coin 
             id={coin.id} 
@@ -61,6 +65,7 @@ const Coins = () => {
             price_change_percentage_1h_in_currency={coin.price_change_percentage_1h_in_currency}
             price_change_percentage_7d_in_currency={coin.price_change_percentage_7d_in_currency}
             key={coin.id}
+            isFavorite={found ? true : false}
             />
             )
           })

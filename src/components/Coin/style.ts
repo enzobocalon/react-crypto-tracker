@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface IProps {
-  transition: boolean
+  favorite?: boolean
 }
 
 export const Row = styled.div`
@@ -22,12 +22,12 @@ export const Favorite = styled.div<IProps>`
   .star-full {
     position: absolute;
     left: 0;
-    opacity: ${props => props.transition ? '1' : '0'};
+    opacity: ${props => props.favorite ? '1' : '0'};
     transition: all .3s ease-in-out;
   }
 
   .star {
-    opacity: ${props => props.transition ? '0' : '1'};
+    opacity: ${props => props.favorite ? '0' : '1'};
     transition: all .3s ease-in-out;
   }
 `
