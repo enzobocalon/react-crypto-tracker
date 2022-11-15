@@ -8,6 +8,10 @@ export const Container = styled.main`
   max-width: 1400px;
   margin: 0 auto;
 
+  svg{
+    cursor: pointer;
+  }
+
   .page-container{
     display: flex;
     justify-content: center;
@@ -16,11 +20,29 @@ export const Container = styled.main`
     width: 100%;
     list-style: none;
     margin: 10px 0;
+    overflow-y: hidden;
   }
 
   .page-link{
-    margin: 1rem;
     cursor: pointer;
+    padding: 1rem;
+    transition: all .3s ease-in-out;
+    
+    &:hover{
+      color: rgb(56, 97, 251);
+    }
+  }
+
+  .break {
+    align-self: flex-end;
+  }
+
+  .break, .previous, .next{
+    transition: all .3s ease-in-out;
+    
+    &:hover{
+      color: rgb(56, 97, 251);
+    }
   }
   `
 

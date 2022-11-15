@@ -7,6 +7,8 @@ import * as S from './style';
 import * as CoinStyle from '../Coin/style'
 
 import { AiFillStar } from 'react-icons/ai'
+import { MdNavigateNext, MdNavigateBefore} from 'react-icons/md'
+import { SlOptions } from 'react-icons/sl'
 import { BsCoin } from 'react-icons/bs'
 import ReactPaginate from 'react-paginate';
 
@@ -65,12 +67,12 @@ const Coins = () => {
         }
 
         <ReactPaginate 
-        breakLabel="..."
-        nextLabel=">"
+        breakLabel={<SlOptions />}
+        nextLabel={<MdNavigateNext size={25}/>}
         onPageChange={handlePageClick}
-        pageRangeDisplayed={4}
+        pageRangeDisplayed={2}
         pageCount={pageCount}
-        previousLabel="<"
+        previousLabel={<MdNavigateBefore size={25}/>}
         containerClassName='page-container'
         pageLinkClassName="page-link"
         />
