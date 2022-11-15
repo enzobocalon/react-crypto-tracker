@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface IProps {
+  transition: boolean
+}
+
 export const Row = styled.div`
   width: 100%;
   display: flex;
@@ -11,8 +15,21 @@ export const Row = styled.div`
   border-bottom: 1px solid #2F2E2E;
 `
 
-export const Favorite = styled.div`
+export const Favorite = styled.div<IProps>`
   cursor: pointer;
+  position: relative;
+
+  .star-full {
+    position: absolute;
+    left: 0;
+    opacity: ${props => props.transition ? '1' : '0'};
+    transition: all .3s ease-in-out;
+  }
+
+  .star {
+    opacity: ${props => props.transition ? '0' : '1'};
+    transition: all .3s ease-in-out;
+  }
 `
 
 export const Icon = styled.div`

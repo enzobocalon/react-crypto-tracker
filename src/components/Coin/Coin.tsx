@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ICoins } from '../../utils/interface'
-import { AiOutlineStar } from 'react-icons/ai'
+import { AiOutlineStar, AiFillStar } from 'react-icons/ai'
 import * as S from './style'
 
 const Coin = ({
@@ -12,10 +12,18 @@ const Coin = ({
   price_change_percentage_1h_in_currency,
   price_change_percentage_7d_in_currency
 }: ICoins) => {
+
+  const [star, setStar] = useState(false);
+
+  const handleFavorite = () => {
+    setStar(prev => !prev)
+  }
+
   return (
     <S.Row>
-      <S.Favorite>
-        <AiOutlineStar size={24}/>
+      <S.Favorite onClick={handleFavorite} transition={star}>
+        <AiOutlineStar size={24} className='star'/>
+        <AiFillStar size={24} className='star-full'/>
       </S.Favorite>
       
       <S.Icon>
