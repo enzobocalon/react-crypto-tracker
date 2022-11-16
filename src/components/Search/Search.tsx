@@ -5,16 +5,15 @@ import { ICoins } from '../../utils/interface'
 import { getDataById } from '../../services/api'
 
 interface IProps {
-  state: ICoins[] | null,
   setState: React.Dispatch<React.SetStateAction<ICoins[] | null>>
   firstPage: ICoins[] | null
 }
 
-const Search = ({state, setState, firstPage}:IProps) => {
+const Search = ({setState, firstPage}:IProps) => {
   const search = useRef<HTMLInputElement | null>(null);
   
   const retrieveData = async (id: string) => {
-    const response = await getDataById(id)
+    const response = await getDataById(id) 
     setState(response);
   }
 

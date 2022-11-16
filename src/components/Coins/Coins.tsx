@@ -42,7 +42,7 @@ const Coins = () => {
 
   return (
     <S.Container>
-      <Search state={coins} setState={setCoins} firstPage={firstPage}/>
+      <Search setState={setCoins} firstPage={firstPage}/>
 
       <S.Wrapper>
         <CoinStyle.Row>
