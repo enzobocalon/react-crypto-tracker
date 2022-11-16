@@ -12,12 +12,23 @@ export const Container = styled.header`
   h1{
     cursor: pointer;
   }
+
+  @media (max-width: 500px){
+    h1{
+      font-size: 1.5rem;
+    }
+  }
 `
 
 export const Nav = styled.nav`
   display: flex;
   gap: 1rem;
   font-size: 18px;
+
+  a{
+    color: white;
+    text-decoration: none;
+  }
 `
 
 export const NavItem = styled.div`
