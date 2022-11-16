@@ -20,7 +20,7 @@ const Coin = ({
     setStar(prev => !prev);
     saveFavorite(id);
   }
-  console.log(star)
+
   useEffect(() => {
     setStar(isFavorite)
   }, [])
