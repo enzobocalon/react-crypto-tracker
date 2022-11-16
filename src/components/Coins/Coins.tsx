@@ -17,6 +17,7 @@ const Coins = () => {
   const [pageCount, setPageCount] = useState<number>(1);
   const [coins, setCoins] = useState<ICoins[] | null>(null);
   const [favorited, setFavorited] = useState<string[]>([]);
+  const [firstPage, setFirstPage] = useState<ICoins[] | null>(null);
 
   const handlePageClick = (event: any) => {
     retrievePageData(event.selected + 1);
@@ -25,11 +26,12 @@ const Coins = () => {
   const retrievePageData = async (page: number) => {
       const response = await getDataByPage(page);
       setCoins(response);
+      setFirstPage(response);
   }
   
   const retrieveDataLength = useCallback(async () => {
     const response = await getDataLength();
-    setPageCount(Math.ceil((response!/100)));
+      setPageCount(Math.ceil((response!/100)));
   }, [])
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const Coins = () => {
 
   return (
     <S.Container>
-      <Search />
+      <Search state={coins} setState={setCoins} firstPage={firstPage}/>
 
       <S.Wrapper>
         <CoinStyle.Row>
